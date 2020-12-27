@@ -26,16 +26,6 @@ pipeline {
                 SONAR_LOGIN = credentials('SONARCLOUD_TOKEN')
             }
             parallel {
-                stage('Integration Tests') {
-                    steps {
-                        echo 'int test'
-                    }
-                    post {
-                        always {
-                            junit '**/build/test-results/integrationTest/TEST-*.xml'
-                        }
-                    }
-                }
                 stage('Code Analysis') {
                     steps {
                         gradlew('sonarqube')
