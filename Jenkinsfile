@@ -28,7 +28,7 @@ pipeline {
             parallel {
                 stage('Integration Tests') {
                     steps {
-//                        gradlew('integrationTest')
+                        echo 'int test'
                     }
                     post {
                         always {
