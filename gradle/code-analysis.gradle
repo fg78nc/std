@@ -5,16 +5,16 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.5'
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:3.0"
     }
 }
 
-apply plugin: org.sonarqube.gradle.SonarQubePlugin
+apply plugin: "org.sonarqube"
 
 sonarqube {
     properties {
         property 'sonar.host.url', 'https://sonarcloud.io'
-        property 'sonar.organization', 'bmuschko-github'
+        property 'sonar.organization', 'fg78nc'
         property 'sonar.login', System.getenv('SONAR_LOGIN')
         properties['sonar.tests'] += sourceSets.integrationTest.java.srcDirs
     }
